@@ -11,6 +11,7 @@
   --font-family: "Arial", sans-serif;
   --nav-bg: #233142;
   --main-bg: #faebd7;
+  --form-bg: #d3d3d3;
 }
 
 body {
@@ -127,6 +128,56 @@ p {
 /* main */
 #main-section {
   text-align: center;
+}
+
+/* Contact Form Styling */
+#review-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* margin: top left bottom right */
+  margin: 20px 300px 20px 300px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: var(--form-bg);
+  padding: 35px;
+}
+
+#review-container #contact-form-title {
+  text-align: center;
+  margin-top: -15px;
+}
+
+#score {
+  padding: 3px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px, solid, black;
+  border-radius: 8px;
+  margin: 4px 0 4px 0;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  margin-bottom: -10px;
+  padding: 15px, 15px;
+  border-radius: 8px;
+  background-color: var(--nav-bg);
+  color: white;
+  height: 40px;
+  width: 100px;
+}
+
+input[type="submit"]:hover {
+  background-color: yellowgreen;
 }
 
 /* footer */
