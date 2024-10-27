@@ -8,8 +8,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
 
-const users = require("./routes/users");
-const posts = require("./routes/posts");
+const userRoute = require("./routes/users"); // route to users
+const postRoute = require("./routes/posts"); // route to posts
+const userList = require("./data/users");
+console.log(userList);
 
 const error = require("./utilities/error");
 
@@ -43,8 +45,8 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
 });
 
 // Use our Routes
-app.use("/users", users);
-app.use("/posts", posts);
+app.use("/users", userRoute);
+app.use("/posts", postRoute);
 
 // Error handling
 app.get("/error", (req, res, next) => {
@@ -74,10 +76,7 @@ app.use((req, res, next) => {
 // Any call to next() that includes an
 // Error() will skip regular middleware and
 // only be processed by error-handling middleware.
-// This changes our error handling throughout the application,
-// but allows us to change the processing of ALL errors
-// at once in a single location, which is important for
-// scalability and maintainability.
+// This changes our error handling throughout the application,.
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({ error: err.message });

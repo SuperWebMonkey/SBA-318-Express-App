@@ -18,21 +18,30 @@ router
     res.json({ users, links });
   })
   .post((req, res, next) => {
-    if (req.body.name && req.body.review && req.body.reviewContent) {
-      if (users.find((u) => u.name == req.body.name)) {
-        next(error(409, "User already submitted a review."));
+    try {
+      if (req.body.name && req.body.review && req.body.reviewContent) {
+        if (users.find((u) => u.name == req.body.name)) {
+          next(error(409, "User already submitted a review."));
+        }
+
+        const user = {
+          id: users[users.length - 1].id + 1,
+          name: req.body.name,
+          review: req.body.review,
+          reviewContent: req.body.reviewContent,
+        };
+
+        users.push(user);
+        console.log(
+          `${JSON.stringify(user)} has been added to ${JSON.stringify(users)}`
+        );
+        res.json(users[users.length - 1]);
       }
-
-      const user = {
-        id: users[users.length - 1].id + 1,
-        name: req.body.name,
-        review: req.body.review,
-        reviewContent: req.body.reviewContent,
-      };
-
-      users.push(user);
-      res.json(users[users.length - 1]);
-    } else next(error(400, "Insufficient Data"));
+    } catch (e) {
+      console.log("Error:", e);
+      console("Request body:", req.body);
+      next(error(400, "Insufficient Data"));
+    }
   });
 
 router

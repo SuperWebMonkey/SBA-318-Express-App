@@ -35,7 +35,7 @@
 
     <!-- Submit Review -->
     <section id="review-container">
-      <form action="'/users" id="help-form" method="POST">
+      <form action="/users" id="help-form" method="POST">
         <h2 id="contact-form-title">Review</h2>
         <!-- name input -->
         <label id="name" for="user-name">name:</label>
@@ -50,8 +50,8 @@
         />
         <!-- Score between (1-5) -->
         <div id="score-container">
-          <label for="score">Score (1-5):</label>
-          <select id="score" name="score" required>
+          <label for="review">Score (1-5):</label>
+          <select id="score" name="review" required>
             <option value="">Select a score</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -64,7 +64,7 @@
         <label for="subject" id="subject-label">Write Review:</label>
         <textarea
           id="text-area"
-          name="text-area"
+          name="reviewContent"
           placeholder="Please write here..."
           style="height: 200px"
           minlength="5"
