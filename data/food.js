@@ -1,0 +1,97 @@
+// Food Data
+
+const food = [
+  {
+    id: 1,
+    name: "Pizza",
+    type: "Main Course",
+    ingredients: ["Dough", "Tomato Sauce", "Cheese", "Pepperoni"],
+    calories: 285,
+    vegetarian: false,
+  },
+  {
+    id: 2,
+    name: "Caesar Salad",
+    type: "Appetizer",
+    ingredients: [
+      "Romaine Lettuce",
+      "Croutons",
+      "Parmesan Cheese",
+      "Caesar Dressing",
+    ],
+    calories: 150,
+    vegetarian: true,
+  },
+  {
+    id: 3,
+    name: "Chocolate Cake",
+    type: "Dessert",
+    ingredients: ["Flour", "Sugar", "Cocoa Powder", "Eggs", "Butter"],
+    calories: 350,
+    vegetarian: true,
+  },
+  {
+    id: 4,
+    name: "Sushi",
+    type: "Main Course",
+    ingredients: ["Sushi Rice", "Nori", "Fish", "Vegetables"],
+    calories: 200,
+    vegetarian: false,
+  },
+  {
+    id: 5,
+    name: "Fruit Smoothie",
+    type: "Beverage",
+    ingredients: ["Banana", "Strawberries", "Yogurt", "Honey"],
+    calories: 180,
+    vegetarian: true,
+  },
+  {
+    id: 6,
+    name: "Tacos",
+    type: "Main Course",
+    ingredients: [
+      "Corn Tortillas",
+      "Ground Beef",
+      "Lettuce",
+      "Cheese",
+      "Salsa",
+    ],
+    calories: 300,
+    vegetarian: false,
+  },
+  {
+    id: 7,
+    name: "Pasta Primavera",
+    type: "Main Course",
+    ingredients: ["Pasta", "Mixed Vegetables", "Olive Oil", "Parmesan Cheese"],
+    calories: 400,
+    vegetarian: true,
+  },
+  {
+    id: 8,
+    name: "Grilled Cheese Sandwich",
+    type: "Snack",
+    ingredients: ["Bread", "Cheese", "Butter"],
+    calories: 250,
+    vegetarian: true,
+  },
+  {
+    id: 9,
+    name: "Chicken Curry",
+    type: "Main Course",
+    ingredients: ["Chicken", "Curry Powder", "Coconut Milk", "Rice"],
+    calories: 500,
+    vegetarian: false,
+  },
+  {
+    id: 10,
+    name: "Vegetable Stir Fry",
+    type: "Main Course",
+    ingredients: ["Mixed Vegetables", "Soy Sauce", "Tofu", "Rice"],
+    calories: 350,
+    vegetarian: true,
+  },
+];
+
+module.exports = food;
