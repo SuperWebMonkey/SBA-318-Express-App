@@ -18,16 +18,16 @@ router
     res.json({ users, links });
   })
   .post((req, res, next) => {
-    if (req.body.name && req.body.username && req.body.email) {
-      if (users.find((u) => u.username == req.body.username)) {
-        next(error(409, "Username Already Taken"));
+    if (req.body.name && req.body.review && req.body.reviewContent) {
+      if (users.find((u) => u.name == req.body.name)) {
+        next(error(409, "User already submitted a review."));
       }
 
       const user = {
         id: users[users.length - 1].id + 1,
         name: req.body.name,
-        username: req.body.username,
-        email: req.body.email,
+        review: req.body.review,
+        reviewContent: req.body.reviewContent,
       };
 
       users.push(user);
@@ -59,15 +59,19 @@ router
   .patch((req, res, next) => {
     const user = users.find((u, i) => {
       if (u.id == req.params.id) {
-        for (const key in req.body) {
-          users[i][key] = req.body[key];
-        }
         return true;
       }
     });
 
     if (user) res.json(user);
     else next();
+
+    const { name, review, reviewContent } = req.body;
+    user.id = users.length + 1;
+
+    if (name) user.name = name;
+    if (typeof review === "number") user.review = review;
+    if (reviewContent) user.reviewContent = reviewContent;
   })
   .delete((req, res, next) => {
     const user = users.find((u, i) => {

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SBA 308A - Web App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <section id="navbar">
+      <div class="logo">
+        <a href="#">
+          <img id="logo-pic" src="/img/negative-man-pic.png" alt="Logo" />
+        </a>
+      </div>
+      <a href="./" class="page tech-shop">Geek Central</a>
+      <a href="./" class="page home-page">Home</a>
+      <a href="./about" class="page about-page">About</a>
+      <a href="./contact" class="page contact-page">Contact</a>
+      <a href="#" class="page login" style="float: right">login </a>
+      <a href="#" class="page wishlist" style="float: right"
+        >wishlist <i class="fas fa-heart"></i
+      ></a>
+    </section>
+
+    <!-- main section -->
+    <section id="main-section">
+      <h1 id="">About Page</h1>
+    </section>
+    <!-- Submit Review -->
+    <section id="review-container">
+      <form action="'/users" id="help-form" method="POST">
+        <h2 id="contact-form-title">Review</h2>
+        <label id="name" for="user-name">name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="name"
+          pattern="[A-Za-z]{3,}"
+          title="Three or more letters required"
+          required
+        />
+        <!-- Score between (1-5) -->
+        <label for="score">Score (1-5):</label>
+        <select id="score" name="score" required>
+          <option value="">Select a score</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+        <label for="subject" id="subject-label">Write Review:</label>
+        <textarea
+          id="text-area"
+          name="text-area"
+          placeholder="Please write here..."
+          style="height: 200px"
+          minlength="5"
+          maxlength="500"
+          title="Please write between 5-500 characters"
+          required
+        ></textarea>
+
+        <input
+          class="review-button"
+          id="submit-btn"
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </section>
+
+    <!-- footer -->
+    <footer id="my-footer">
+      <hr />
+      <div class="footer-content">
+        <a href="#" class="footer-icon" target="_self"
+          ><i class="fab fa-github"></i> </a
+        ><a href="#" class="footer-icon" target="_self"
+          ><i class="fab fa-linkedin"></i></a
+        ><a href="#" class="footer-icon" target="_self"
+          ><i class="fab fa-twitter"></i
+        ></a>
+      </div>
+      <div id="copy-right">
+        <h5>@2024 Shyguy, All rights reserved</h5>
+      </div>
+    </footer>
+    <!-- js links - put here in case -->
+  </body>
+</html>

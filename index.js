@@ -6,7 +6,6 @@
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const mustache = require("mustache");
 const path = require("path");
 
 const users = require("./routes/users");
@@ -44,8 +43,8 @@ ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
 });
 
 // Use our Routes
-app.use("/api/users", users);
-app.use("/api/posts", posts);
+app.use("/users", users);
+app.use("/posts", posts);
 
 // Error handling
 app.get("/error", (req, res, next) => {
@@ -53,18 +52,17 @@ app.get("/error", (req, res, next) => {
   next(error); // Pass the error to the next middleware
 });
 
-// Adding some HATEOAS links.
+// Main routes
 app.get("/", (req, res) => {
-  // res.json({
-  //   links: [
-  //     {
-  //       href: "/api",
-  //       rel: "api",
-  //       type: "GET",
-  //     },
-  //   ],
-  // });
   res.render("home");
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
+
+app.get("/about", (req, res) => {
+  res.render("about");
 });
 
 // 404 Middleware

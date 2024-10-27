@@ -1,72 +1,53 @@
-// Creating the simple data structures we'll work with.
-// How we choose to store and organize this data is very important!
-// Different options and techniques for storing data and
-// creating relationships between different data sets will be
-// explored during lessons on database integrations and techniques.
-
-// The "users" data will be simple information about
-// the application's user base.
+// Contains data for users who have entered a review.
 
 const users = [
   {
     id: 1,
     name: "Alice Johnson",
-    username: "alicej",
-    email: "alice.johnson@example.com",
+    review: 5,
+    reviewContent: "Absolutely fantastic! Exceeded my expectations.",
   },
   {
     id: 2,
     name: "Bob Smith",
-    username: "bobsmith",
-    email: "bob.smith@example.com",
+    review: 4,
+    reviewContent: "Great service, but there was a small issue with the order.",
   },
   {
     id: 3,
-    name: "Catherine Lee",
-    username: "cathy_lee",
-    email: "catherine.lee@example.com",
+    name: "Charlie Brown",
+    review: 3,
+    reviewContent: "It was okay, but I've had better experiences elsewhere.",
   },
   {
     id: 4,
-    name: "David Brown",
-    username: "davidb",
-    email: "david.brown@example.com",
+    name: "Diana Prince",
+    review: 5,
+    reviewContent: "Loved it! Will definitely come back again.",
   },
   {
     id: 5,
-    name: "Eva Green",
-    username: "evagreen",
-    email: "eva.green@example.com",
+    name: "Edward Elric",
+    review: 2,
+    reviewContent: "Not what I expected. Disappointed with the quality.",
   },
   {
     id: 6,
-    name: "Frank Wilson",
-    username: "frankwilson",
-    email: "frank.wilson@example.com",
+    name: "Fiona Gallagher",
+    review: 4,
+    reviewContent: "Really good overall, just a few minor complaints.",
   },
   {
     id: 7,
-    name: "Grace Taylor",
-    username: "gracet",
-    email: "grace.taylor@example.com",
+    name: "George Clooney",
+    review: 5,
+    reviewContent: "Incredible experience! Highly recommend to everyone.",
   },
   {
     id: 8,
-    name: "Henry Adams",
-    username: "henry_a",
-    email: "henry.adams@example.com",
-  },
-  {
-    id: 9,
-    name: "Isabella Clark",
-    username: "isa_clark",
-    email: "isabella.clark@example.com",
-  },
-  {
-    id: 10,
-    name: "Jack Martinez",
-    username: "jackm",
-    email: "jack.martinez@example.com",
+    name: "Hannah Montana",
+    review: 3,
+    reviewContent: "It was fine, but I think it could use some improvements.",
   },
 ];
 

@@ -18,12 +18,18 @@ router
     res.json({ posts, links });
   })
   .post((req, res, next) => {
-    if (req.body.userId && req.body.title && req.body.content) {
+    if (
+      req.body.name &&
+      req.body.type &&
+      req.body.calories &&
+      req.body.vegetarian
+    ) {
       const post = {
         id: posts[posts.length - 1].id + 1,
-        userId: req.body.userId,
-        title: req.body.title,
-        content: req.body.content,
+        name: req.body.name,
+        type: req.body.type,
+        calories: req.body.calories,
+        vegetarian: req.body.vegetarian,
       };
 
       posts.push(post);

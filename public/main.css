@@ -56,7 +56,9 @@ p {
 
 #logo-pic,
 .tech-shop,
-.home-page {
+.home-page,
+.contact-page,
+.about-page {
   float: left;
 }
 
@@ -124,10 +126,7 @@ p {
 
 /* main */
 #main-section {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  /* flex-direction: column; */
+  text-align: center;
 }
 
 /* footer */
