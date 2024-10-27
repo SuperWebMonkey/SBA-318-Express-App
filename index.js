@@ -21,10 +21,12 @@ const port = 3000;
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+// serve static files
+app.use(express.static(path.join(__dirname, "public")));
+
 // Parsing Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
-app.use(express.static(path.join(__dirname, "styles")));
 
 // Logging Middlewaare
 app.use((req, res, next) => {
@@ -53,43 +55,16 @@ app.get("/error", (req, res, next) => {
 
 // Adding some HATEOAS links.
 app.get("/", (req, res) => {
-  res.json({
-    links: [
-      {
-        href: "/api",
-        rel: "api",
-        type: "GET",
-      },
-    ],
-  });
-});
-
-// Adding some HATEOAS links.
-app.get("/api", (req, res) => {
-  res.json({
-    links: [
-      {
-        href: "api/users",
-        rel: "users",
-        type: "GET",
-      },
-      {
-        href: "api/users",
-        rel: "users",
-        type: "POST",
-      },
-      {
-        href: "api/posts",
-        rel: "posts",
-        type: "GET",
-      },
-      {
-        href: "api/posts",
-        rel: "posts",
-        type: "POST",
-      },
-    ],
-  });
+  // res.json({
+  //   links: [
+  //     {
+  //       href: "/api",
+  //       rel: "api",
+  //       type: "GET",
+  //     },
+  //   ],
+  // });
+  res.render("home");
 });
 
 // 404 Middleware

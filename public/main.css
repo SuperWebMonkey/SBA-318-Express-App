@@ -122,54 +122,12 @@ p {
   font-size: 20px; /* Adjust icon size */
 }
 
-/* food gallery */
-#food-section {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  background-color: antiquewhite;
-  padding-bottom: 10px;
-}
-
-.foody-gallery {
+/* main */
+#main-section {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
   justify-content: center;
-  align-items: center;
-}
-
-.foody-gallery img {
-  width: 100%; /* Make the image take the full width of the container */
-  height: auto; /* Maintain the aspect ratio */
-  max-width: 150px; /* Previously 150px. Set maximum width (adjust as needed) */
-  max-height: 150px; /* Set maximum height (adjust as needed) */
-  /* object-fit: cover;  */
-}
-
-.item-box {
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center; /* Center items vertically */
-  align-items: center;
-  flex: 1 0 33%;
-  align-items: center;
-  height: 300px;
-  width: 150px;
-  border: 2px solid black;
-  box-sizing: border-box;
-  background-color: whitesmoke;
-  margin-top: 10px;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-bottom: 15px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-bottom: 12px;
-}
-
-.item-box button {
-  width: 70px;
-  background-color: white;
+  align-content: center;
+  /* flex-direction: column; */
 }
 
 /* footer */
