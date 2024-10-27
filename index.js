@@ -67,6 +67,10 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 
+app.get("/admin", (req, res) => {
+  res.render("admin");
+});
+
 // 404 Middleware
 app.use((req, res, next) => {
   next(error(404, "Resource Not Found"));

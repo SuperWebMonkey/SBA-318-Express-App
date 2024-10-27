@@ -59,7 +59,8 @@ p {
 .tech-shop,
 .home-page,
 .contact-page,
-.about-page {
+.about-page,
+.admin-page {
   float: left;
 }
 
