@@ -1,4 +1,4 @@
-# Cellphone Store API Project
+# Express Store Website
 
 This project contains different routes that shows the product lists and users.
 
