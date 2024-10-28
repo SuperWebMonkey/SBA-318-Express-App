@@ -72,6 +72,15 @@ const requestCounter = (req, res, next) => {
 
 app.use(requestCounter);
 
+// Middleware to log query parameters
+const logQueryParams = (req, res, next) => {
+  console.log("Query Params:", req.query);
+  next(); // Call the next middleware or route handler
+};
+
+// Use the logging middleware
+app.use(logQueryParams);
+
 // Use our Routes
 app.use("/users", userRoute);
 app.use("/food", postRoute);
@@ -102,7 +111,7 @@ app.get("/admin", (req, res) => {
 
 // does not work
 app.get("/search", (req, res) => {
-  const { review } = req.query.rating;
+  const review = req.query.rating;
   console.log("review query:", review, "\n");
 
   // Filter products based on query parameters
@@ -110,10 +119,12 @@ app.get("/search", (req, res) => {
   console.log("list:", filterList, "\n");
 
   if (review) {
+    console.log("review is valid");
     const reviewNum = parseInt(review);
-    filterList = filterList.filter((user) => user.review >= reviewNum);
+    filterList = filterList.filter((user) => user.review === reviewNum);
   }
 
+  // res.json({ filterList });
   console.log("filtered list:", filterList, "\n");
 
   res.render("about", { userList: filterList });

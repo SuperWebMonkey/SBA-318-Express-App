@@ -36,7 +36,7 @@
     <!-- Search bar -->
     <section id="sb-container">
       <h1>Search</h1>
-      <form id="searchForm">
+      <form id="searchForm" method="GET" action="/search">
         <input
           type="text"
           name="rating"
@@ -47,7 +47,7 @@
       </form>
     </section>
     <!-- Ratings -->
-    <section id="rating-container" method="GET" action="/search">
+    <section id="rating-container">
       <div id="rating-gallery">
         <ul>
           <% userList.forEach(user => { %>
