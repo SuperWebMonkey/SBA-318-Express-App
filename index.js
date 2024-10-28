@@ -79,20 +79,20 @@ app.get("/admin", (req, res) => {
 // does not work
 app.get("/search", (req, res) => {
   const { review } = req.query;
-  console.log(review);
+  console.log("review query:", review, "\n");
 
   // Filter products based on query parameters
   let filterList = userList;
-  console.log("list:", filterList);
+  console.log("list:", filterList, "\n");
 
   if (review) {
     const reviewNum = parseInt(review);
     filterList = filterList.filter((user) => user.review >= reviewNum);
   }
 
-  console.log(filterList);
+  console.log("filtered list:", filterList, "\n");
 
-  res.render("about", { userList: filteredProducts });
+  res.render("about", { userList: filterList });
 });
 
 // 404 Middleware
