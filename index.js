@@ -27,24 +27,24 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Parsing Middleware
+app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
-app.use(methodOverride("_method"));
 
 // Logging Middlewaare
-app.use((req, res, next) => {
-  const time = new Date();
+// app.use((req, res, next) => {
+//   const time = new Date();
 
-  console.log(
-    `-----
-${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
-  );
-  if (Object.keys(req.body).length > 0) {
-    console.log("Containing the data:");
-    console.log(`${JSON.stringify(req.body)}`);
-  }
-  next();
-});
+//   console.log(
+//     `-----
+// ${time.toLocaleTimeString()}: Received a ${req.method} request to ${req.url}.`
+//   );
+//   if (Object.keys(req.body).length > 0) {
+//     console.log("Containing the data:");
+//     console.log(`${JSON.stringify(req.body)}`);
+//   }
+//   next();
+// });
 
 // Use our Routes
 app.use("/users", userRoute);

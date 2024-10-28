@@ -10,10 +10,16 @@
     />
     <link rel="stylesheet" href="/main.css" />
     <script>
-      function updateAction() {
+      function remove() {
         const id = document.getElementById("id").value;
         const form = document.getElementById("delete-form");
         form.action = `/users/${id}?_method=DELETE`;
+      }
+
+      function patch() {
+        const id = document.getElementById("patch-id").value;
+        const form = document.getElementById("patch-form");
+        form.action = `/users/${id}?_method=PATCH`;
       }
     </script>
   </head>
@@ -43,7 +49,7 @@
     <!-- delete section -->
     <section id="delete-container">
       <h1>Delete Item by ID</h1>
-      <form id="delete-form" action="#" method="POST" onsubmit="updateAction()">
+      <form id="delete-form" action="#" method="POST" onsubmit="remove()">
         <!-- <input type="hidden" name="_method" value="DELETE" /> -->
         <label for="id">Enter Item ID to delete:</label>
         <input type="number" id="id" name="id" required />
@@ -51,7 +57,19 @@
       </form>
     </section>
     <!-- Patch section -->
-
+    <section id="patch-container">
+      <h1>Update review by ID</h1>
+      <form id="patch-form" action="#" method="POST" onsubmit="patch()">
+        <!-- <input type="hidden" name="_method" value="PATCH" /> -->
+        <label for="id">Enter Item ID to edit name:</label>
+        <input type="number" id="patch-id" name="id" required />
+        <div>
+          <label for="name">New name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <button type="submit">Edit name by ID</button>
+      </form>
+    </section>
     <!-- footer -->
     <footer id="my-footer">
       <hr />

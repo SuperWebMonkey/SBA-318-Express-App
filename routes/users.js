@@ -64,27 +64,31 @@ router
     ];
 
     if (user) {
-      res.send("");
+      res.send({ user, links });
     } else {
       next();
     }
   })
   .patch((req, res, next) => {
-    const user = users.find((u, i) => {
-      if (u.id == req.params.id) {
-        return true;
+    const id = parseInt(req.params.id);
+    const name = req.body.name;
+    console.log(`Received PATCH request for ID: ${id}, New Name: ${name}`);
+
+    if (!isNaN(id) && name) {
+      const user = users.find((u, i) => {
+        if (u.id == req.params.id) {
+          return true;
+        }
+      });
+
+      if (user) {
+        user.name = name;
+        console.log("New changes in this user:", JSON.stringify(user));
+        res.json(user);
       }
-    });
-
-    if (user) res.json(user);
-    else next();
-
-    const { name, review, reviewContent } = req.body;
-    user.id = users.length + 1;
-
-    if (name) user.name = name;
-    if (typeof review === "number") user.review = review;
-    if (reviewContent) user.reviewContent = reviewContent;
+    } else {
+      res.status(400).send("Valid ID and name are required.");
+    }
   })
   .delete((req, res, next) => {
     const id = parseInt(req.params.id);

@@ -133,7 +133,8 @@ p {
 
 /* Contact Form Styling */
 #review-container,
-#delete-container {
+#delete-container,
+#patch-container {
   display: flex;
   justify-content: center;
   align-items: center;
