@@ -7,6 +7,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+const methodOverride = require("method-override");
 
 const userRoute = require("./routes/users"); // route to users
 const postRoute = require("./routes/posts"); // route to posts
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Parsing Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ extended: true }));
+app.use(methodOverride("_method"));
 
 // Logging Middlewaare
 app.use((req, res, next) => {
@@ -68,7 +70,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/admin", (req, res) => {
-  res.render("admin");
+  res.render("admin", { userList });
 });
 
 // 404 Middleware

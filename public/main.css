@@ -132,7 +132,8 @@ p {
 }
 
 /* Contact Form Styling */
-#review-container {
+#review-container,
+#delete-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,6 +144,11 @@ p {
   border-radius: 5px;
   background-color: var(--form-bg);
   padding: 35px;
+}
+
+#delete-container,
+#patch-container {
+  flex-direction: column;
 }
 
 #review-container #contact-form-title {

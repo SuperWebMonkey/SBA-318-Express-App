@@ -35,7 +35,8 @@ router
         console.log(
           `${JSON.stringify(user)} has been added to ${JSON.stringify(users)}`
         );
-        res.json(users[users.length - 1]);
+        // res.json(users[users.length - 1]);
+        res.render("contact", { title: "My Page" });
       }
     } catch (e) {
       console.log("Error:", e);
@@ -62,8 +63,11 @@ router
       },
     ];
 
-    if (user) res.json({ user, links });
-    else next();
+    if (user) {
+      res.send("");
+    } else {
+      next();
+    }
   })
   .patch((req, res, next) => {
     const user = users.find((u, i) => {
@@ -83,15 +87,26 @@ router
     if (reviewContent) user.reviewContent = reviewContent;
   })
   .delete((req, res, next) => {
-    const user = users.find((u, i) => {
-      if (u.id == req.params.id) {
-        users.splice(i, 1);
-        return true;
-      }
-    });
+    const id = parseInt(req.params.id);
+    try {
+      const user = users.find((u, i) => {
+        if (u.id == id) {
+          users.splice(i, 1);
+          return true;
+        }
+      });
 
-    if (user) res.json(user);
-    else next();
+      if (user) {
+        console.log(`What it looks like now: ${JSON.stringify(users)}`);
+        res.json(user);
+      } else {
+        return res.status(404).send("Item not found.");
+      }
+    } catch (e) {
+      console.log("Error:", e);
+      console("Request body:", req.body.id);
+      next(error(400, "User id not found"));
+    }
   });
 
 module.exports = router;
