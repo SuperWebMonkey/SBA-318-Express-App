@@ -134,7 +134,9 @@ p {
 /* Contact Form Styling */
 #review-container,
 #delete-container,
-#patch-container {
+#patch-container,
+#sb-container,
+#rating-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,7 +150,9 @@ p {
 }
 
 #delete-container,
-#patch-container {
+#patch-container,
+#sb-container,
+#rating-container {
   flex-direction: column;
 }
 

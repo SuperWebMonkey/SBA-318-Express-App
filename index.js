@@ -69,22 +69,24 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("about", userList);
+  res.render("about", { userList });
 });
 
 app.get("/admin", (req, res) => {
   res.render("admin", { userList });
 });
 
+// does not work
 app.get("/search", (req, res) => {
-  const review = req.query;
+  const { review } = req.query;
   console.log(review);
 
   // Filter products based on query parameters
   let filterList = userList;
+  console.log("list:", filterList);
 
   if (review) {
-    filterList = filterList.filter((user) => user.review.includes(review));
+    filterList = filterList.filter((user) => user.review >= review);
   }
 
   res.json(filterList);

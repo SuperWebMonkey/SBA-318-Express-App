@@ -9,6 +9,34 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="/main.css" />
+    <script>
+      // document
+      //   .getElementById("searchForm")
+      //   .addEventListener("submit", function (e) {
+      //     e.preventDefault();
+      //     const rating = document.getElementById("rating").value;
+      //     console.log("rating", rating);
+
+      //     const params = new URLSearchParams(rating);
+
+      //     async function getData() {
+      //       await fetch(`/search?${params}`)
+      //         .then((response) => response.json())
+      //         .then((data) => {
+      //           const ratingContainer =
+      //             document.getElementById("rating-gallery");
+      //           ratingContainer.textContent = ""; // Clear previous results
+      //           data.forEach((user) => {
+      //             const li = document.createElement("li");
+      //             li.textContent = `${user.name} \nRating: ${user.review} \nReview: \n${user.reviewContent}\n\n`;
+      //             ratingContainer.appendChild(li);
+      //           });
+      //         });
+      //     }
+
+      //     getData();
+      //   });
+    </script>
   </head>
   <body>
     <!-- Navbar -->
@@ -33,7 +61,32 @@
     <section id="main-section">
       <h1 id="">About Page</h1>
     </section>
-
+    <!-- Search bar -->
+    <section id="sb-container">
+      <h1>Search</h1>
+      <form id="searchForm">
+        <input type="text" id="rating" placeholder="Search for ratings..." />
+        <button type="submit">Search</button>
+      </form>
+    </section>
+    <!-- Ratings -->
+    <section id="rating-container">
+      <div id="rating-gallery">
+        <ul>
+          <% userList.forEach(user => { %>
+          <ul>
+            <strong><%= user.name %></strong>
+            (Review: <%= user.review %>)
+          </ul>
+          <ul>
+            <h4>Review Description:</h4>
+            <p><%= user.reviewContent %></p>
+          </ul>
+          <br />
+          <% }) %>
+        </ul>
+      </div>
+    </section>
     <!-- footer -->
     <footer id="my-footer">
       <hr />
