@@ -102,7 +102,7 @@ app.get("/admin", (req, res) => {
 
 // does not work
 app.get("/search", (req, res) => {
-  const { review } = req.query;
+  const { review } = req.query.rating;
   console.log("review query:", review, "\n");
 
   // Filter products based on query parameters
