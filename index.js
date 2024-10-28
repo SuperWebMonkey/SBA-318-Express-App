@@ -11,6 +11,8 @@ const methodOverride = require("method-override");
 
 const userRoute = require("./routes/users"); // route to users
 const postRoute = require("./routes/posts"); // route to posts
+const employeeRoute = require("./routes/employees"); // route to employees
+
 const userList = require("./data/users");
 console.log(userList);
 
@@ -48,7 +50,8 @@ app.use(bodyParser.json({ extended: true }));
 
 // Use our Routes
 app.use("/users", userRoute);
-app.use("/posts", postRoute);
+app.use("/food", postRoute);
+app.use("/employees", employeeRoute);
 
 // Error handling
 app.get("/error", (req, res, next) => {
@@ -66,11 +69,25 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/about", (req, res) => {
-  res.render("about");
+  res.render("about", userList);
 });
 
 app.get("/admin", (req, res) => {
   res.render("admin", { userList });
+});
+
+app.get("/search", (req, res) => {
+  const review = req.query;
+  console.log(review);
+
+  // Filter products based on query parameters
+  let filterList = userList;
+
+  if (review) {
+    filterList = filterList.filter((user) => user.review.includes(review));
+  }
+
+  res.json(filterList);
 });
 
 // 404 Middleware
