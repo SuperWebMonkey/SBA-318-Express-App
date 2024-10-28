@@ -86,10 +86,13 @@ app.get("/search", (req, res) => {
   console.log("list:", filterList);
 
   if (review) {
-    filterList = filterList.filter((user) => user.review >= review);
+    const reviewNum = parseInt(review);
+    filterList = filterList.filter((user) => user.review >= reviewNum);
   }
 
-  res.json(filterList);
+  console.log(filterList);
+
+  res.render("about", { userList: filteredProducts });
 });
 
 // 404 Middleware

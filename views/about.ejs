@@ -9,34 +9,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="/main.css" />
-    <script>
-      // document
-      //   .getElementById("searchForm")
-      //   .addEventListener("submit", function (e) {
-      //     e.preventDefault();
-      //     const rating = document.getElementById("rating").value;
-      //     console.log("rating", rating);
-
-      //     const params = new URLSearchParams(rating);
-
-      //     async function getData() {
-      //       await fetch(`/search?${params}`)
-      //         .then((response) => response.json())
-      //         .then((data) => {
-      //           const ratingContainer =
-      //             document.getElementById("rating-gallery");
-      //           ratingContainer.textContent = ""; // Clear previous results
-      //           data.forEach((user) => {
-      //             const li = document.createElement("li");
-      //             li.textContent = `${user.name} \nRating: ${user.review} \nReview: \n${user.reviewContent}\n\n`;
-      //             ratingContainer.appendChild(li);
-      //           });
-      //         });
-      //     }
-
-      //     getData();
-      //   });
-    </script>
   </head>
   <body>
     <!-- Navbar -->
@@ -70,7 +42,7 @@
       </form>
     </section>
     <!-- Ratings -->
-    <section id="rating-container">
+    <section id="rating-container" method="GET" action="/search">
       <div id="rating-gallery">
         <ul>
           <% userList.forEach(user => { %>
