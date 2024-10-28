@@ -61,6 +61,17 @@ const responseTimeLogger = (req, res, next) => {
 
 app.use(responseTimeLogger);
 
+// Request count middleware
+let requestCount = 0;
+
+const requestCounter = (req, res, next) => {
+  requestCount++;
+  console.log(`Total requests: ${requestCount}`);
+  next();
+};
+
+app.use(requestCounter);
+
 // Use our Routes
 app.use("/users", userRoute);
 app.use("/food", postRoute);
@@ -114,10 +125,6 @@ app.use((req, res, next) => {
 });
 
 // Error-handling middleware.
-// Any call to next() that includes an
-// Error() will skip regular middleware and
-// only be processed by error-handling middleware.
-// This changes our error handling throughout the application,.
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({ error: err.message });
