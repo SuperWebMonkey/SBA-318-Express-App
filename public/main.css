@@ -149,6 +149,14 @@ p {
   padding: 35px;
 }
 
+#image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #delete-container,
 #patch-container,
 #sb-container,
