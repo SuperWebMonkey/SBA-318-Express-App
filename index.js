@@ -48,6 +48,19 @@ app.use(bodyParser.json({ extended: true }));
 //   next();
 // });
 
+// Response middleware
+const responseTimeLogger = (req, res, next) => {
+  const start = process.hrtime();
+  res.on("finish", () => {
+    const duration = process.hrtime(start);
+    const milliseconds = (duration[0] * 1000 + duration[1] / 1e6).toFixed(2);
+    console.log(`${req.method} ${req.url} - ${milliseconds} ms`);
+  });
+  next();
+};
+
+app.use(responseTimeLogger);
+
 // Use our Routes
 app.use("/users", userRoute);
 app.use("/food", postRoute);
@@ -95,7 +108,7 @@ app.get("/search", (req, res) => {
   res.render("about", { userList: filterList });
 });
 
-// 404 Middleware
+// Error 404 Middleware
 app.use((req, res, next) => {
   next(error(404, "Resource Not Found"));
 });
